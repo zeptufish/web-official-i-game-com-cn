@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 发现你的游戏世界</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fafbfc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1d2a3a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2.4rem 1.2rem 3.6rem;
+        }
+
+        .page-wrap {
+            max-width: 720px;
+            width: 100%;
+        }
+
+        /* 标题层级 */
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+            color: #0b1a2b;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin: 2.4rem 0 1rem 0;
+            color: #1e2f40;
+            border-left: 4px solid #7fa8c9;
+            padding-left: 0.9rem;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #2a4055;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: #2e3b4b;
+        }
+
+        a {
+            color: #1e6b9b;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+            font-weight: 450;
+        }
+
+        a:hover {
+            border-bottom-color: #1e6b9b;
+        }
+
+        .hero {
+            margin-top: 1.8rem;
+            margin-bottom: 2.2rem;
+            background: #ffffff;
+            padding: 2rem 2rem 2.2rem;
+            border-radius: 28px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eef2f6;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #2d4053;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero .sub {
+            font-size: 0.95rem;
+            color: #5b6c7c;
+            margin-top: 0.8rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 1.8rem 0 1.2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.6rem 1.4rem 1.4rem;
+            border: 1px solid #e6ecf2;
+            transition: box-shadow 0.15s, transform 0.1s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.01em;
+        }
+
+        .card p {
+            font-size: 0.92rem;
+            color: #3f5366;
+            margin-bottom: 0;
+        }
+
+        .audience-block {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 1.8rem 1.8rem 1.6rem;
+            margin: 1.6rem 0 2rem;
+            border: 1px solid #e4ebf2;
+        }
+
+        .audience-block p {
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-mini {
+            background: #f5f8fc;
+            border-radius: 18px;
+            padding: 1.5rem 1.6rem;
+            margin: 2rem 0 1.6rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.6rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #1d3347;
+            padding: 0.3rem 0;
+        }
+
+        .faq-mini details p {
+            margin: 0.6rem 0 0.2rem 1.2rem;
+            font-size: 0.92rem;
+            color: #3f5569;
+        }
+
+        .link-passage {
+            background: white;
+            padding: 1.2rem 1.6rem;
+            border-radius: 18px;
+            border: 1px solid #e7edf3;
+            margin: 1.6rem 0 0.8rem;
+            font-size: 0.98rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dce4ec;
+            margin: 1.8rem 0 0.6rem;
+        }
+
+        .footer-note {
+            font-size: 0.82rem;
+            color: #718396;
+            text-align: center;
+            margin-top: 2.8rem;
+            border-top: 1px solid #e3eaf0;
+            padding-top: 1.6rem;
+        }
+
+        @media (max-width: 520px) {
+            body {
+                padding: 1.5rem 0.9rem 2.4rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .hero {
+                padding: 1.6rem 1.2rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+
+            .card {
+                padding: 1.2rem 1.1rem;
+            }
+
+            .audience-block {
+                padding: 1.2rem 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <!-- hero 区域 -->
+    <div class="hero">
+        <h1>爱游戏 · 找到适合你的游戏</h1>
+        <p>一个帮你快速判断游戏是否值得一试的网站。没有冗长的测评，只有清晰的归类、玩法摘要和玩家视角的提示。</p>
+        <div class="sub">不论是消遣一刻，还是沉浸一段故事，先看看这里再决定也不迟。</div>
+    </div>
+
+    <!-- 用途卡片 —— 信息卡片式 -->
+    <h2>它主要用来做什么</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>📋 快速概览</h3>
+            <p>每款游戏都提炼出核心机制、美术风格、上手难度和大致时长。不用翻遍论坛，几分钟就能了解全貌。</p>
+        </div>
+        <div class="card">
+            <h3>🔍 同类参考</h3>
+            <p>列出风格或玩法相似的游戏，方便你横向对比，找到更合口味的作品。</p>
+        </div>
+        <div class="card">
+            <h3>⚖️ 客观提醒</h3>
+            <p>包含常见的劝退点、设备要求以及可能令人不适的内容，帮你避免踩坑。</p>
+        </div>
+        <div class="card">
+            <h3>🧩 简易标签</h3>
+            <p>通过「单机 / 联机」「休闲 / 硬核」「叙事驱动」等标签，一眼定位自己想要的类型。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群 + 场景，融入自然链接 -->
+    <div class="audience-block">
+        <h2 style="border-left-color:#90b8d8; margin-top:0;">哪些人适合来这里</h2>
+        <p><strong>平时玩得不多，偶尔想试一款新游戏</strong>——这里的信息密度刚好，不会让你淹没在术语里。</p>
+        <p><strong>有一定经验，但想快速筛选</strong>——卡片式结构可以帮你跳过不感兴趣的部分，直接看结论。</p>
+        <p><strong>给孩子或朋友挑游戏</strong>——内容风格温和，标注了年龄建议和内容提示，参考起来比较安心。</p>
+        <p style="margin-top:1rem;">如果你想直接浏览游戏库，可以前往 <a href="https://web-official-i-game.com.cn">爱游戏</a> 的主页，里面按类型和热度做了整理。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-mini">
+        <h2 style="border-left-color:#b2cde0; margin-top: 0; padding-left:0.8rem;">几个常见问题</h2>
+        <details>
+            <summary>这里的游戏信息更新快吗？</summary>
+            <p>保持合理的更新节奏，新作上线后通常一周内会有基本条目，老游戏也会回顾补充。具体以站内标注日期为准。</p>
+        </details>
+        <details>
+            <summary>是否包含手机游戏？</summary>
+            <p>有的。站内同时收录手游、PC 与主机作品，但筛选时可以通过标签只看某一平台。</p>
+        </details>
+        <details>
+            <summary>文章是个人观点还是综合信息？</summary>
+            <p>综合多方公开资料以及玩家普遍反馈，尽量呈现共识性内容，同时注明有争议的部分。个人评测会单独标注。</p>
+        </details>
+    </div>
+
+    <!-- 自然链接段落（第二个链接） -->
+    <div class="link-passage">
+        <p style="margin-bottom:0.2rem;">💡 如果你已经对某款游戏产生兴趣，想在更安静的页面里仔细看看它的介绍和玩家评价，可以直接去 <a href="https://web-official-i-game.com.cn">爱游戏</a> 的详细页。所有链接都保持克制，没有弹窗或强制跳转。</p>
+    </div>
+
+    <!-- 补充一个温和的提示段 -->
+    <div style="background:#f3f7fc; border-radius: 18px; padding: 1rem 1.5rem; margin: 1rem 0 0.2rem; border:1px solid #e0e9f2;">
+        <p style="margin-bottom:0; font-size:0.94rem;">🕊️ 每个游戏都值得被认真对待，但不必每一款都亲自尝试。先用几分钟在这里了解，再做选择。</p>
+    </div>
+
+    <hr>
+    <div class="footer-note">
+        爱游戏 · 不吹捧不贬低，只做诚实的游戏介绍
+    </div>
+</div>
+</body>
+</html>
