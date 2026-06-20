@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>足球竞猜 · 日常查询与对照说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f2f7f9;
+            color: #1d2f3b;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        /* 蓝绿色主视觉 */
+        .accent-bg {
+            background: linear-gradient(145deg, #deebe8 0%, #c3dbd4 100%);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.2rem;
+            margin: 1.8rem 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.4rem 1.2rem;
+            box-shadow: 0 4px 12px rgba(0, 40, 30, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.25s ease;
+            border: 1px solid rgba(140, 190, 170, 0.2);
+            backdrop-filter: blur(2px);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 80, 60, 0.08);
+            border-color: #6bada0;
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.4rem;
+            display: block;
+            color: #2c7a6b;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.25rem;
+            color: #17433b;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #395a53;
+            margin-top: 0.2rem;
+        }
+
+        .hero-tagline {
+            font-size: 2.2rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin: 0.8rem 0 0.2rem;
+            color: #0a352c;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: #3b655b;
+            border-left: 4px solid #6fbfae;
+            padding-left: 1rem;
+            margin: 0.8rem 0 1.2rem;
+        }
+
+        .text-block {
+            background: white;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 8px rgba(0, 30, 20, 0.02);
+        }
+
+        .text-block h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #0f4036;
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .text-block h2::before {
+            content: "📋";
+            font-size: 1.2rem;
+            margin-right: 0.3rem;
+        }
+
+        .text-block p {
+            margin-bottom: 0.8rem;
+            color: #1d3f37;
+        }
+
+        .faq-summary {
+            background: #e5f1ed;
+            border-radius: 18px;
+            padding: 1.4rem 1.6rem;
+            margin: 1.8rem 0 1rem;
+        }
+
+        .faq-summary details {
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(100, 150, 130, 0.2);
+            padding-bottom: 0.5rem;
+        }
+
+        .faq-summary details:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-summary summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #1b5243;
+            padding: 0.2rem 0;
+            font-size: 0.95rem;
+        }
+
+        .faq-summary summary::marker {
+            color: #3f8979;
+        }
+
+        .faq-summary p {
+            font-size: 0.9rem;
+            color: #2d5b4e;
+            margin-top: 0.25rem;
+            padding-left: 0.5rem;
+        }
+
+        .footer-note {
+            margin-top: 2.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid #c7ddd4;
+            font-size: 0.9rem;
+            color: #4e7165;
+            text-align: center;
+        }
+
+        .footer-note a {
+            color: #1e6b5a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #86b9ab;
+        }
+
+        .footer-note a:hover {
+            color: #063f33;
+            border-bottom-color: #063f33;
+        }
+
+        .inline-link {
+            color: #1b7360;
+            text-decoration: underline;
+            text-underline-offset: 0.15em;
+            text-decoration-color: #a2cec0;
+            font-weight: 500;
+        }
+
+        .inline-link:hover {
+            color: #084d3c;
+            text-decoration-color: #084d3c;
+        }
+
+        .meta-note {
+            font-size: 0.85rem;
+            color: #557a6b;
+            background: #ddeae4;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0.8rem 0.6rem;
+            }
+            .hero-tagline {
+                font-size: 1.7rem;
+            }
+            .hero-sub {
+                font-size: 1rem;
+                padding-left: 0.6rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+            .text-block {
+                padding: 1.2rem 1rem;
+            }
+            .faq-summary {
+                padding: 1rem 1rem;
+            }
+        }
+
+        @media (min-width: 600px) {
+            .hero-tagline {
+                font-size: 2.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句 -->
+    <div class="hero-tagline">
+        日常查询 · 对照 · 延伸阅读
+    </div>
+    <div class="hero-sub">
+        关于足球竞猜，也许你只是想了解基本规则、常见说法，或是看看别人怎么看。
+    </div>
+
+    <!-- 承接段落 -->
+    <div class="text-block">
+        <h2>从一次翻看开始</h2>
+        <p>
+            不少人是先看到一场比赛，然后才注意到「竞猜」这个词。它像是给看球增加了一层更主动的参与——不是单纯的观看，而是结合数据、状态、阵容去推测可能的结果。这个过程本身就有种朴素的乐趣：你查历史交锋，翻积分榜，对照伤病名单，最后形成一个判断。
+        </p>
+        <p>
+            当然，竞猜不是预测，更不是承诺。它更像是一种有框架的讨论方式，把对比赛的关注转换成可记录的选项。如果你也习惯在赛前翻看各种信息，或许会对下面这些日常场景感到熟悉。
+        </p>
+    </div>
+
+    <!-- 特点列表：网格卡片 -->
+    <div class="card-grid">
+        <div class="card">
+            <span class="card-icon">📊</span>
+            <h3>数据对照</h3>
+            <p>近五场走势、主客场差异、进球时段分布，都是常见参考项。</p>
+        </div>
+        <div class="card">
+            <span class="card-icon">📰</span>
+            <h3>资讯延伸</h3>
+            <p>从赛前发布会到训练视频，每条信息都可能影响判断方向。</p>
+        </div>
+        <div class="card">
+            <span class="card-icon">🧩</span>
+            <h3>选项组合</h3>
+            <p>胜平负、让球、半全场……不同玩法对应不同的分析角度。</p>
+        </div>
+        <div class="card">
+            <span class="card-icon">📌</span>
+            <h3>记录与回顾</h3>
+            <p>把每轮的对照结果记下来，长期看也是一种有趣的复盘。</p>
+        </div>
+    </div>
+
+    <!-- 场景 + 温和叙述 -->
+    <div class="text-block" style="margin-top: 0.2rem;">
+        <h2>三个常见场景</h2>
+        <p><strong>周中查资料。</strong> 联赛间隙，打开页面翻看数据，把几场焦点战的基本面理清楚。这时候需要的不是结论，而是清晰的信息陈列。</p>
+        <p><strong>周末对照。</strong> 比赛进行时，一边看直播一边核对之前做的功课，看哪些因素起了作用，哪些判断需要修正。</p>
+        <p><strong>赛后延伸。</strong> 比赛结束后，再回头看看赛前忽略的细节——某个伤病的影响、天气变化、裁判尺度……这些都会成为下一轮对照的素材。</p>
+        <p style="margin-top: 1rem; background: #e9f3ef; padding: 0.6rem 1rem; border-radius: 40px;">
+            💡 这些场景下，你可能会反复用到 <a class="inline-link" href="https://zc-sporttery.com">足球竞猜</a> 这个站点，它像是一个信息中转站，把分散的数据和资讯聚合在一个地方。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-summary">
+        <h3 style="font-weight: 500; font-size: 1.1rem; margin-bottom: 0.6rem; color: #134439;">⚡ 几个常被问到的点</h3>
+        <details>
+            <summary>竞猜和预测是一回事吗？</summary>
+            <p>不太一样。预测偏向给出结论，竞猜更注重过程——你基于什么信息、用什么逻辑推演，这本身就是一种思考训练。</p>
+        </details>
+        <details>
+            <summary>需要懂很多足球知识吗？</summary>
+            <p>不一定。刚开始可以从基础规则和阵容信息入手，慢慢就会积累出自己的参照体系。关键是保持好奇和记录习惯。</p>
+        </details>
+        <details>
+            <summary>信息太杂，从哪里看起？</summary>
+            <p>建议从本周主要赛事的基本面开始：联赛排名、近期战绩、伤病名单。先建立框架，再深入细节。</p>
+        </details>
+    </div>
+
+    <!-- 温和结尾 + 链接 -->
+    <div class="footer-note">
+        <p>一份安静的整理页。如果你也在做日常对照，不妨把 <a href="https://zc-sporttery.com">足球竞猜</a> 加入你的资料书签。</p>
+        <p style="margin-top: 0.8rem; font-size: 0.8rem; opacity: 0.7;">内容基于公开信息整理 · 仅供个人参考</p>
+    </div>
+
+</div>
+</body>
+</html>
