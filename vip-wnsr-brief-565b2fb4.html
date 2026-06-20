@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简明指南 · 威尼斯人</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f6f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1d2b36;
+      line-height: 1.6;
+      padding: 1.5rem;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 42px 42px 32px 32px;
+      box-shadow: 0 12px 32px rgba(22, 45, 58, 0.08);
+      overflow: hidden;
+      padding: 2rem 1.8rem 3rem;
+    }
+
+    /* hero 区 */
+    .hero {
+      text-align: center;
+      padding: 2rem 0.5rem 1.2rem;
+      border-bottom: 2px solid #e5edf4;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #1b4b5a;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: #4a6a7a;
+      background: #e7f1f5;
+      display: inline-block;
+      padding: 0.2rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 450;
+      margin-top: 0.2rem;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 1rem auto 0;
+      color: #2f4b5a;
+      font-size: 1.05rem;
+    }
+
+    /* 摘要卡片网格 */
+    .grid-highlights {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.6rem;
+      margin: 2.5rem 0 2rem;
+    }
+
+    @media (min-width: 600px) {
+      .grid-highlights {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .grid-highlights {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: #f8fbfd;
+      border-radius: 28px;
+      padding: 1.6rem 1.4rem 1.8rem;
+      box-shadow: 0 4px 10px rgba(33, 60, 71, 0.04);
+      border: 1px solid #dfe9ef;
+      transition: box-shadow 0.18s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 18px rgba(22, 70, 85, 0.07);
+    }
+
+    .card .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: #c8e1e9;
+      border-radius: 14px;
+      margin-bottom: 0.7rem;
+      color: #1b586b;
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #153f4d;
+      font-weight: 560;
+    }
+
+    .card p {
+      font-size: 0.94rem;
+      color: #2a4858;
+    }
+
+    .card .tag {
+      display: inline-block;
+      background: #d7e9f0;
+      color: #104653;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.7rem;
+      border-radius: 40px;
+      font-weight: 500;
+      margin-top: 0.8rem;
+    }
+
+    /* 使用场景 / 建议 */
+    .usage-section {
+      background: #ecf4f8;
+      border-radius: 32px;
+      padding: 1.8rem 1.8rem 2rem;
+      margin: 2rem 0 1.8rem;
+    }
+
+    .usage-section h2 {
+      font-size: 1.6rem;
+      font-weight: 550;
+      color: #104452;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .usage-section h2 span {
+      background: #9fc7d6;
+      width: 8px;
+      height: 28px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .usage-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+
+    .usage-item {
+      background: white;
+      padding: 1rem 1.2rem 1.2rem;
+      border-radius: 22px;
+      flex: 1 1 160px;
+      box-shadow: 0 2px 6px rgba(30, 60, 75, 0.04);
+      border: 1px solid #d5e2ea;
+    }
+
+    .usage-item strong {
+      display: block;
+      color: #175162;
+      font-weight: 560;
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+
+    .usage-item p {
+      font-size: 0.9rem;
+      color: #315767;
+    }
+
+    /* 提醒区块 */
+    .note-box {
+      background: #dcecf3;
+      border-radius: 28px;
+      padding: 1.5rem 1.8rem;
+      margin: 2rem 0 1.8rem;
+      border-left: 6px solid #288197;
+    }
+
+    .note-box h3 {
+      font-weight: 500;
+      font-size: 1.3rem;
+      color: #04343f;
+      margin-bottom: 0.4rem;
+    }
+
+    .note-box p {
+      color: #1d4656;
+      font-size: 0.98rem;
+    }
+
+    .note-box .small {
+      font-size: 0.84rem;
+      opacity: 0.8;
+      margin-top: 0.4rem;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      margin: 2rem 0 1rem;
+    }
+
+    .faq-mini h4 {
+      font-size: 1.2rem;
+      color: #103c49;
+      font-weight: 540;
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #dee9ef;
+      padding: 0.8rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-weight: 530;
+      color: #1b5466;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .faq-question::before {
+      content: "▹";
+      color: #2a899e;
+      font-weight: bold;
+    }
+
+    .faq-answer {
+      margin-left: 1.8rem;
+      font-size: 0.9rem;
+      color: #2f5566;
+      margin-top: 0.2rem;
+    }
+
+    .link-sentence {
+      background: #f3f9fd;
+      padding: 1.4rem 1.6rem;
+      border-radius: 36px;
+      text-align: center;
+      margin: 1.8rem 0 0.6rem;
+      border: 1px dashed #9bc5d4;
+    }
+
+    .link-sentence p {
+      font-size: 1rem;
+      color: #0f3c4a;
+      margin: 0;
+    }
+
+    .link-sentence a {
+      color: #176a7d;
+      font-weight: 560;
+      text-decoration: none;
+      border-bottom: 2px solid #72b7cc;
+      padding-bottom: 0.06rem;
+      transition: border-color 0.15s;
+    }
+
+    .link-sentence a:hover {
+      border-bottom-color: #0f4c5c;
+    }
+
+    .footer-note {
+      margin-top: 2.2rem;
+      font-size: 0.8rem;
+      color: #5b7988;
+      text-align: center;
+      border-top: 1px solid #dfe9ef;
+      padding-top: 1.6rem;
+    }
+
+    /* 移动端微调 */
+    @media (max-width: 480px) {
+      .page {
+        padding: 1.4rem 1rem 2.5rem;
+      }
+
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .usage-item {
+        flex: 1 1 100%;
+      }
+
+      .note-box {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <!-- hero 简明产品说明 -->
+  <div class="hero">
+    <h1>威尼斯人 · 简明指南</h1>
+    <div class="sub">日常参考 · 访问提醒</div>
+    <p>
+      一份关于平台特点、使用建议与注意事项的轻量说明，帮助你快速了解大致方向，不浮夸、不绕弯。
+    </p>
+  </div>
+
+  <!-- 摘要亮点卡片网格 -->
+  <div class="grid-highlights">
+    <div class="card">
+      <div class="icon">◈</div>
+      <h3>内容聚合</h3>
+      <p>涵盖多种休闲娱乐信息与功能模块，围绕用户常见需求做了清晰分类。</p>
+      <span class="tag">信息结构</span>
+    </div>
+    <div class="card">
+      <div class="icon">◈</div>
+      <h3>界面友好</h3>
+      <p>视觉风格偏向沉稳与清爽，功能区域分明，适合快速查找自己关心的内容。</p>
+      <span class="tag">体验细节</span>
+    </div>
+    <div class="card">
+      <div class="icon">◈</div>
+      <h3>持续更新</h3>
+      <p>板块内容保持一定的新鲜度，动态栏目让常规浏览不乏变化。</p>
+      <span class="tag">维护节奏</span>
+    </div>
+  </div>
+
+  <!-- 使用建议 + 场景 -->
+  <div class="usage-section">
+    <h2><span></span> 使用建议 & 典型场景</h2>
+    <div class="usage-grid">
+      <div class="usage-item">
+        <strong>日常浏览</strong>
+        <p>适合在碎片时间里随意翻阅，首页导航提供了清晰的入口指引。</p>
+      </div>
+      <div class="usage-item">
+        <strong>信息比对</strong>
+        <p>需要了解不同分类时，可利用列表与筛选侧边栏快速缩小范围。</p>
+      </div>
+      <div class="usage-item">
+        <strong>功能探索</strong>
+        <p>首次访问可从顶部模块开始，逐步熟悉各分区的内容逻辑。</p>
+      </div>
+      <div class="usage-item">
+        <strong>参考记录</strong>
+        <p>部分页面包含实用说明与常见问题，适合作为轻量参考。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 可信但克制的访问说明 -->
+  <div class="note-box">
+    <h3>🔍 访问提醒</h3>
+    <p>
+      请通过正规渠道访问，留意网络环境与设备安全。任何平台都建议适度使用，根据个人判断选择适合的功能。<br>
+      下方提供链接仅为方便说明，请自行确认访问的合规性。
+    </p>
+    <p class="small">* 本页为独立介绍，不存储用户数据，不诱导行为。</p>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <h4>常见疑问 · 简答</h4>
+    <div class="faq-item">
+      <div class="faq-question">主要内容有哪些方向？</div>
+      <div class="faq-answer">娱乐资讯、实用工具、社区互动等模块，整体偏向轻松生活氛围。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">是否需要注册或下载？</div>
+      <div class="faq-answer">部分功能可能需账号参与，但浏览多数内容无需额外软件。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">移动端适配怎么样？</div>
+      <div class="faq-answer">页面采用响应式设计，手机与平板均能正常阅读和操作。</div>
+    </div>
+  </div>
+
+  <!-- 自然嵌入链接的句子 且可见文本严格为「威尼斯人」 -->
+  <div class="link-sentence">
+    <p>
+      若想进一步探索功能或查看最新动态，可前往
+      <a href="https://vip-wnsr.com">威尼斯人</a>
+      了解更多。记得根据自身需求筛选内容。
+    </p>
+  </div>
+
+  <div class="footer-note">
+    简明介绍页 · 内容仅作参考 · 请合理使用
+  </div>
+</div>
+</body>
+</html>
